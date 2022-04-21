@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-secret-pod
+spec:
+  volumes:
+  - name: my-secret-volume
+    secret:
+      secretName: mytop-secret
+  containers:
+  - name: my-secret-container
+    image: busybox
+    command: ["/bin/sh","-c","env"]
+    volumeMounts:
+    - name: my-secret-volume
+      mountPath: "/etc/secret"
+  restartPolicy: Never 
