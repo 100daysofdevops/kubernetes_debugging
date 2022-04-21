@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mytest-demo
+spec:
+  containers:
+  - name: my-demo-container
+    image: debian
+    command: ["printen"]
+    args: ["HOSTNAME", "KUBERNETES_PORT"]
